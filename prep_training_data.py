@@ -457,13 +457,13 @@ class TrainingData(object):
 		return table
 
 	def transformResult(self, row):
-	    '''Converts results (H,A or D) into numeric values'''
-	    if(row.FTR == 'H'):
-	        return 1
-	    elif(row.FTR == 'A'):
-	        return -1
-	    else:
-	        return 0
+		'''Converts results (H,A or D) into numeric values'''
+		if(row.FTR == 'H'):
+			return 1
+		elif(row.FTR == 'A'):
+			return -1
+		else:
+			return 0
 
 	def load_data(self):
 		print('Reading data...', end='\r')
