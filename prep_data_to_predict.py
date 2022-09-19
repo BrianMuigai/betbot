@@ -167,7 +167,7 @@ def prompt_fixtures():
 def auto_create_fixture():
 	global num
 	print('Getting fixtures...', end='\r')
-	url = 'http://football-data.co.uk/fixtures.csv'
+	url = 'https://football-data.co.uk/fixtures.csv'
 	data = download_data.download_fixtures(url)
 	available = data[data.Div == download_data.select_league(loc)]
 	if len(available) == 0:

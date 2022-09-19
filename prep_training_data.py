@@ -199,7 +199,7 @@ class TrainingData(object):
 	def initialize_teams(self, data, standings):
 		current_teams = data.groupby('HomeTeam').mean().T.columns
 		all_teams = standings.Team
-		new_teams = get_new_teams(all_teams, current_teams)
+		new_teams = self.get_new_teams(all_teams, current_teams)
 		if len(new_teams) > 0:
 			for team in new_teams:
 				row = []
@@ -467,21 +467,21 @@ class TrainingData(object):
 
 	def load_data(self):
 		print('Reading data...', end='\r')
-		self.raw_data_5 = pd.read_csv(self.loc + '04-05.csv', error_bad_lines=False)[:380]
-		self.raw_data_6 = pd.read_csv(self.loc + '05-06.csv', error_bad_lines=False)[:380]
-		self.raw_data_7 = pd.read_csv(self.loc + '06-07.csv', error_bad_lines=False)[:380]
-		self.raw_data_8 = pd.read_csv(self.loc + '07-08.csv', error_bad_lines=False)[:380]
-		self.raw_data_9 = pd.read_csv(self.loc + '08-09.csv', error_bad_lines=False)[:380]
-		self.raw_data_10 = pd.read_csv(self.loc + '09-10.csv', error_bad_lines=False)[:380]
-		self.raw_data_11 = pd.read_csv(self.loc + '10-11.csv', error_bad_lines=False)[:380]
-		self.raw_data_12 = pd.read_csv(self.loc + '11-12.csv', error_bad_lines=False)[:380]
-		self.raw_data_13 = pd.read_csv(self.loc + '12-13.csv', error_bad_lines=False)[:380]
-		self.raw_data_14 = pd.read_csv(self.loc + '13-14.csv', error_bad_lines=False)[:380]
-		self.raw_data_15 = pd.read_csv(self.loc + '14-15.csv', error_bad_lines=False)[:380]
-		self.raw_data_16 = pd.read_csv(self.loc + '15-16.csv', error_bad_lines=False)[:380]
-		self.raw_data_17 = pd.read_csv(self.loc + '16-17.csv', error_bad_lines=False)[:380]
-		self.raw_data_18 = pd.read_csv(self.loc + '17-18.csv', error_bad_lines=False)[:380]
-		self.raw_data_19 = pd.read_csv(self.loc + '18-19.csv', error_bad_lines=False)[:380]
+		self.raw_data_5 = pd.read_csv(self.loc + '04-05.csv', error_bad_lines=False, encoding= 'unicode_escape')[:380]
+		self.raw_data_6 = pd.read_csv(self.loc + '05-06.csv', error_bad_lines=False, encoding= 'unicode_escape')[:380]
+		self.raw_data_7 = pd.read_csv(self.loc + '06-07.csv', error_bad_lines=False, encoding= 'unicode_escape')[:380]
+		self.raw_data_8 = pd.read_csv(self.loc + '07-08.csv', error_bad_lines=False, encoding= 'unicode_escape')[:380]
+		self.raw_data_9 = pd.read_csv(self.loc + '08-09.csv', error_bad_lines=False, encoding= 'unicode_escape')[:380]
+		self.raw_data_10 = pd.read_csv(self.loc + '09-10.csv', error_bad_lines=False, encoding= 'unicode_escape')[:380]
+		self.raw_data_11 = pd.read_csv(self.loc + '10-11.csv', error_bad_lines=False, encoding= 'unicode_escape')[:380]
+		self.raw_data_12 = pd.read_csv(self.loc + '11-12.csv', error_bad_lines=False, encoding= 'unicode_escape')[:380]
+		self.raw_data_13 = pd.read_csv(self.loc + '12-13.csv', error_bad_lines=False, encoding= 'unicode_escape')[:380]
+		self.raw_data_14 = pd.read_csv(self.loc + '13-14.csv', error_bad_lines=False, encoding= 'unicode_escape')[:380]
+		self.raw_data_15 = pd.read_csv(self.loc + '14-15.csv', error_bad_lines=False, encoding= 'unicode_escape')[:380]
+		self.raw_data_16 = pd.read_csv(self.loc + '15-16.csv', error_bad_lines=False, encoding= 'unicode_escape')[:380]
+		self.raw_data_17 = pd.read_csv(self.loc + '16-17.csv', error_bad_lines=False, encoding= 'unicode_escape')[:380]
+		self.raw_data_18 = pd.read_csv(self.loc + '17-18.csv', error_bad_lines=False, encoding= 'unicode_escape')[:380]
+		self.raw_data_19 = pd.read_csv(self.loc + '18-19.csv', error_bad_lines=False, encoding= 'unicode_escape')[:380]
 		self.save_standings(self.raw_data_19, '2019')
 		self.load_standings()
 
